@@ -104,7 +104,7 @@
                     <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
                             <i class="bx bx-copy-alt" style="color: #e80368;"></i>
-                            <h3><a href="">Rekening Tabubungan Atau Tagihan Listrik</a></h3>
+                            <h3><a href="">Surat Keterangan Tidak Mampu</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">

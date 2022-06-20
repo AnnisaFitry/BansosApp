@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BansosController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -21,7 +22,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('admin/home', [HomeController::class, 'adminIndex'])->name('admin.index')->middleware('is_admin');
 
 Route::get('/index', [BansosController::class, 'index'])->name('index');
 Route::get('/login', [BansosController::class, 'login'])->name('login');
