@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BansosController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/index', [BansosController::class, 'index'])->name('index');
+Route::get('/login', [BansosController::class, 'login'])->name('login');
+Route::get('/register', [BansosController::class, 'register'])->name('register');
+Route::get('/pengajuan', [BansosController::class, 'pengajuan'])->name('pengajuan');
+Route::get('/profile', [BansosController::class, 'profile'])->name('profile');
