@@ -29,22 +29,19 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+
+      <style>
+        html {
+          background-color: rgba(2, 5, 161, 0.91);
+        }
+      </style>
 </head>
 
 <body>
-    <!-- ======= Header ======= -->
-    @include('partials.header-main')
-    <!-- End Header -->
-
     <div>
         @yield('container')
     </div>
-
-
-    <!-- ======= Footer ======= -->
-    @include('partials.footer-main')
-    <!-- End Footer -->
-
+    
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
       <i class="bi bi-arrow-up-short"></i>
     </a>

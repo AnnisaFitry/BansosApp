@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master-auth')
 
 @section('container')
 <main id="main" style="background-color: rgba(2, 5, 161, 0.91);">

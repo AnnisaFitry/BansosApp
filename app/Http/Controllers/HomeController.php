@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        return view('index');
     }
     
     /**
@@ -31,8 +31,23 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function adminIndex()
+    public function adminHome()
     {
-        return view('admin.index');
+        return view('admin.index-admin');
+    }
+
+    public function userAdmin()
+    {
+        return view('admin.user-admin');
+    }
+
+    public function laporanBansos()
+    {
+        return view('admin.laporan-bansos');
+    }
+
+    public function detailData()
+    {
+        return view('admin.detail-data');
     }
 }

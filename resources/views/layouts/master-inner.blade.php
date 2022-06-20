@@ -33,7 +33,7 @@
 
 <body>
     <!-- ======= Header ======= -->
-    @include('partials.header-main')
+    @include('partials.header-inner')
     <!-- End Header -->
 
     <div>
@@ -42,7 +42,7 @@
 
 
     <!-- ======= Footer ======= -->
-    @include('partials.footer-main')
+    @include('partials.footer-inner')
     <!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center">

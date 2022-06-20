@@ -25,14 +25,44 @@ class BansosController extends Controller
     }
 
     public function pengajuan(){
-        return view('pengajuan',[
+        return view('users.pengajuan',[
             "title" => "Pengajuan"
         ]);
     }
 
     public function profile(){
-        return view('profile',[
+        return view('users.profile',[
             "title" => "Profile"
+        ]);
+    }
+
+    public function indexadmin(){
+        return view('index-admin',[
+            "title" => "Index Admin"
+        ]);
+    }
+
+    public function useradmin(){
+        return view('user-admin',[
+            "title" => "User Admin"
+        ]);
+    }
+
+    public function laporanbansos(){
+        return view('laporan-bansos',[
+            "title" => "Laporan Bansos"
+        ]);
+    }
+
+    public function cetakbansos(){
+        return view('admin.cetak-bansos',[
+            "title" => "Cetak Bansos"
+        ]);
+    }
+
+    public function detaildata(){
+        return view('detail-data',[
+            "title" => "Detail Data"
         ]);
     }
 }

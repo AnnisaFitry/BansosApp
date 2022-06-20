@@ -1,6 +1,7 @@
-@extends('layouts.master')
+@extends('layouts.master-inner')
 
 @section('container')
+@auth
 <main id="main">
     <section class="inner-page" style="padding: 120px 0;">
         <div class="container">
@@ -83,4 +84,17 @@
         </div>
     </section>
 </main>
+@else
+<main id="main">
+    <section class="inner-page" style="padding: 120px 0;">
+        <div class="container">
+            <div class="section-title" style="text-align: center;" data-aos="fade-up">
+                <h2 style="color: red;">OOPS!</h2>
+                <p>Silahkan Login Terlebih Dahulu</p>
+            </div>
+        </div>
+    </section>
+</main>
+@endauth
+
 @endsection
