@@ -266,7 +266,7 @@
                             <div class="pic"><img src="assets/img/team/team-5.jpg" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Nadhifa Lutfiah Mahmudah</h4>
-                                <span>2041720000</span>
+                                <span>2041720082</span>
                                 <div class="social">
                                     <span>Technical Writer</span>
                                 </div>
