@@ -11,7 +11,7 @@
                             Jl. Soekarno Hatta No 09. <br> Malang 65141<br><br>
                             <strong>Phone:</strong> +62 812 3456 7890<br>
                             <strong>Email:</strong> tim4bansosapp@gmail.com<br>
-                        </p>
+                        </p> 
                         <div class="social-links mt-3">
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -36,7 +36,7 @@
                 <div class="col-lg-2 col-md-6 footer-links">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route ('pengajuan') }}">Pengajuan Bansos</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Pengajuan Bansos</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">Profile</a></li>
                     </ul>
                 </div>

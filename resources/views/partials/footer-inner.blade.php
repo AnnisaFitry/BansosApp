@@ -36,7 +36,7 @@
                 <div class="col-lg-2 col-md-6 footer-links">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route ('pengajuan') }}">Pengajuan Bansos</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Pengajuan Bansos</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">Profile</a></li>
                     </ul>
                 </div>

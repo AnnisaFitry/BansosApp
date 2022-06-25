@@ -1,4 +1,4 @@
-@extends('layouts.master-inner')
+@extends('layouts.master-inner-user')
 
 @section('container')
 @auth
@@ -15,11 +15,11 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                                alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3">John Smith</h5>
-                            <p class="text-muted mb-1">Full Stack Developer</p>
-                            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                            <img src="{{asset('storage/'.$user->foto_user)}}"
+                                alt="avatar" class="rounded-circle img-fluid thumb-post"  style="width: 150px; height: 150px; object-fit: cover;"> 
+                            <h5 class="my-3">{{ Auth::user()->databansos->nama_lengkap }}</h5>
+                            <p class="text-muted mb-1">{{ Auth::user()->databansos->pekerjaan }}</p>
+                            <p class="text-muted mb-4">{{ Auth::user()->databansos->provinsi }}</p>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                                     <p class="mb-0">Nama Lengkap</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Johnatan Smith</p>
+                                    <p class="text-muted mb-0">{{ Auth::user()->databansos->nama_lengkap }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -40,7 +40,7 @@
                                     <p class="mb-0">Tempat / Tanggal Lahir</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">example@example.com</p>
+                                    <p class="text-muted mb-0">{{ Auth::user()->databansos->tempat_lahir }} / {{ Auth::user()->databansos->tanggal_lahir }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -49,7 +49,7 @@
                                     <p class="mb-0">Jenis Kelamin</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">(097) 234-5678</p>
+                                    <p class="text-muted mb-0">{{ Auth::user()->databansos->jenis_kelamin }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -58,7 +58,7 @@
                                     <p class="mb-0">Alamat</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">(098) 765-4321</p>
+                                    <p class="text-muted mb-0">{{ Auth::user()->databansos->alamat }}, {{ Auth::user()->databansos->kabupaten }}, {{ Auth::user()->databansos->provinsi }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -67,7 +67,7 @@
                                     <p class="mb-0">No HP</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                    <p class="text-muted mb-0">{{ Auth::user()->databansos->no_hp }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -76,7 +76,7 @@
                                     <p class="mb-0">Email</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                    <p class="text-muted mb-0">{{ Auth::user()->email }}</p>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                                         <p class="mb-0">Nama Lengkap</p>
                                     </div>
                                     <div class="col-sm-9">
-                                        <p class="text-muted mb-0">Test</p>
+                                        <p class="text-muted mb-0">{{ Auth::user()->databansos->nama_lengkap }}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -102,7 +102,9 @@
                                         <p class="mb-0">Jenis Bansos</p>
                                     </div>
                                     <div class="col-sm-9">
-                                        <p class="text-muted mb-0">example@example.com</p>
+                                        <p class="text-muted mb-0">
+                                            {{ $bansos->jenisbansos->nama_bansos }}
+                                        </p>
                                     </div>
                                 </div>
                                 <hr>
@@ -111,13 +113,48 @@
                                         <p class="mb-0">Progress Bansos</p>
                                     </div>
                                     <div class="col-sm-9">
-                                        <p class="text-muted mb-0">(097) 234-5678</p>
+                                        <p class="text-muted mb-0">
+                                            {{ $validasi->proses }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="row justify-content-center align-items-center">
+                        <div class="col-md-4 grid-margin grid-margin-md-0 stretch-card" style="display: flex;">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Foto KTP</h4>
+                                    <p class="card-description">Berikut Foto KTP Anda : </p>
+
+                                    <img src="{{asset('storage/'.$user->databansos->foto_ktp)}}" style="width: 350px; height: 250px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 grid-margin grid-margin-md-0 stretch-card" style="display: flex;">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Swafoto KTP</h4>
+                                    <p class="card-description">Berikut Swafoto KTP Anda : </p>
+
+                                    <img src="{{asset('storage/'.$user->databansos->swafoto_ktp)}}" style="width: 350px; height: 250px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 grid-margin grid-margin-md-0 stretch-card" style="display: flex;">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Keterangan Tidak Mampu</h4>
+                                    <p class="card-description">Berikut Foto Bukti SKTM Anda : </p>
+
+                                    <img src="{{asset('storage/'.$user->databansos->bukti_sktm)}}" style="width: 350px; height: 250px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
     </section>
 </main>

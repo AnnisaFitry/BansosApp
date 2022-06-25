@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master-user')
 
 @section('container')
 <div id="container">
@@ -10,13 +10,19 @@
                     <div data-aos="zoom-out">
                         <h1>Sistem Aplikasi Bantuan Sosial dengan <span>BansosApp</span></h1>
                         <h2>Platform Bantuan Sosial Untuk Menjangkau Masyarakat Lebih Luas, Adil, dan Terarah.</h2>
+                        @if (Auth::user()->databansos_id == NULL)
                         <div class="text-center text-lg-start">
-                            <a href="{{ route ('pengajuanGuest') }}" class="btn-get-started scrollto">Daftar Sekarang!</a>
+                            <a href="{{ route ('pengajuan.index') }}" class="btn-get-started scrollto">Daftar Sekarang!</a>
                         </div>
+                        @else
+                        <div class="text-center text-lg-start">
+                            <a href="{{ route('profile.show', Auth::user()->id) }}" class="btn-get-started scrollto">Cek Pengajuan!</a>
+                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
-                    <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+                    <img src="{{ asset('assets/img/hero-img.png') }}" class="img-fluid animated" alt="">
                 </div>
             </div>
         </div>
@@ -123,7 +129,7 @@
 
                 <div class="row content">
                     <div class="col-md-4" data-aos="fade-right">
-                        <img src="assets/img/details-1.png" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/img/details-1.png') }}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-8 pt-4" data-aos="fade-up">
                         <h3>Apa itu Bantuan Sosial (Bansos) ?</h3>
@@ -153,7 +159,7 @@
 
                 <div class="row content">
                     <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
-                        <img src="assets/img/details-2.png" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/img/details-2.png') }}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
                         <h3>Tujuan Pemberian Bansos</h3>
@@ -178,7 +184,7 @@
 
                 <div class="row content">
                     <div class="col-md-4" data-aos="fade-right">
-                        <img src="assets/img/details-3.png" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/img/details-3.png') }}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-8 pt-5" data-aos="fade-up">
                         <h3>Jenis Bansos</h3>
@@ -225,7 +231,7 @@
                 <div class="row justify-content-center align-items-center" data-aos="fade-left">
                     <div class="col-lg-2 col-md-6">
                         <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Annisa Fitri <br> Yuliandra</h4>
                                 <span>2041720123</span>
@@ -238,7 +244,7 @@
 
                     <div class="col-lg-2 col-md-6 mt-5 mt-md-0">
                         <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('assets/img/team/team-2.jpg') }}" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Muh. Fauzi Ramadhan Nugraha</h4>
                                 <span>2041720022</span>
@@ -251,7 +257,7 @@
                     
                     <div class="col-lg-2 col-md-6 mt-5 mt-lg-0">
                         <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="pic"><img src="assets/img/team/team-5.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('assets/img/team/team-5.jpg') }}" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Nadhifa Lutfiah Mahmudah</h4>
                                 <span>2041720082</span>
@@ -264,7 +270,7 @@
 
                     <div class="col-lg-2 col-md-6 mt-5 mt-lg-0">
                         <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('assets/img/team/team-4.jpg') }}" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Komang Gede Narariya Suputra</h4>
                                 <span>2041720225</span>
@@ -277,7 +283,7 @@
 
                     <div class="col-lg-2 col-md-6 mt-5 mt-lg-0">
                         <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('assets/img/team/team-3.jpg') }}" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Jasmin Salsabila <br> Arifah</h4>
                                 <span>2041720097</span>

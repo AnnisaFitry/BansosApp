@@ -10,8 +10,8 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto" href="{{ route('dashboard') }}">Home</a></li>
-                <li><a class="nav-link scrollto" href="{{ route('pengajuan') }}">Pengajuan</a></li>
-                <li><a class="nav-link scrollto" href="{{ route('profile') }}">Profile</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('pengajuanGuest') }}">Pengajuan</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('profileGuest') }}">Profile</a></li>
                 <!-- Authentication Links -->
                 @guest
                 @if (Route::has('login'))

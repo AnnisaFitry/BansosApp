@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BansosController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UpdateUsers;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -22,20 +26,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('admin/home', [HomeController::class, 'adminHome'])->name('adminHome')->middleware('is_admin');
-Route::get('admin/user', [HomeController::class, 'userAdmin'])->name('userAdmin')->middleware('is_admin');
-Route::get('admin/laporan', [HomeController::class, 'laporanBansos'])->name('laporanBansos')->middleware('is_admin');
-Route::get('admin/detail', [HomeController::class, 'detailData'])->name('detailData')->middleware('is_admin');
+Route::middleware(['is_admin'])->group(function () {
+    Route::get('admin/home', [HomeController::class, 'adminHome'])->name('adminHome');
+    Route::get('admin/user', [HomeController::class, 'userAdmin'])->name('userAdmin');
+    Route::get('admin/laporan', [HomeController::class, 'laporanBansos'])->name('laporanBansos');
+    Route::get('admin/detail', [HomeController::class, 'detailData'])->name('detailData');
+});
+
+Route::middleware(['is_user'])->group(function () {
+    Route::get('user/home', [UsersController::class, 'index'])->name('userHome');
+    Route::resource('pengajuan', PengajuanController::class);
+    Route::resource('profile', ProfileController::class);
+});
+
+Route::resource('updateJenisBansos', UpdateUsers::class);
 
 Route::get('/home', [BansosController::class, 'index'])->name('dashboard');
-Route::get('/register', [BansosController::class, 'register'])->name('register');
-Route::get('/pengajuan', [BansosController::class, 'pengajuan'])->name('pengajuan');
-Route::get('/profile', [BansosController::class, 'profile'])->name('profile');
-Route::get('/index-admin', [BansosController::class, 'indexadmin'])->name('indexadmin');
-Route::get('/cetak-bansos', [BansosController::class, 'cetakbansos'])->name('cetakbansos');
-
-// Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
-// Route::get('/login', [BansosController::class, 'login'])->name('login');
-// Route::get('/user-admin', [BansosController::class, 'useradmin'])->name('useradmin');
-// Route::get('/laporan-bansos', [BansosController::class, 'laporanbansos'])->name('laporanbansos');
-// Route::get('/detail-data', [BansosController::class, 'detaildata'])->name('detaildata');
+Route::get('/pengajuanGuest', [BansosController::class, 'pengajuan'])->name('pengajuanGuest');
+Route::get('/profileGuest', [BansosController::class, 'profile'])->name('profileGuest');

@@ -9,7 +9,8 @@
                     <div class="card border-0 shadow rounded-3 my-5">
                         <div class="card-body p-4 p-sm-5">
                             <h3 class="card-title text-center mb-4" style="color: rgba(2, 5, 161, 0.91);">Sign Up</h3>
-                            <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="row mb-3">
@@ -70,6 +71,15 @@
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control"
                                             name="password_confirmation" required autocomplete="new-password">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="contohupload1" class="col-md-4 col-form-label text-md-end">{{ __('Foto Profile') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input type="file" name="foto_user" class="form-control"
+                                            id="contohupload1">
                                     </div>
                                 </div>
 

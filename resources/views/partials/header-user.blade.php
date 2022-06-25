@@ -2,18 +2,21 @@
     <div class="container d-flex align-items-center justify-content-between">
 
         <div class="logo">
-            <h1><a href="{{ route('dashboard') }}"><span>BansosApp</span></a></h1>
+            <h1><a href="{{ route('userHome') }}"><span>BansosApp</span></a></h1>
         </div>
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="{{ route('dashboard') }}">Home</a></li>
-                <li><a class="nav-link scrollto" href="{{ route('pengajuanGuest') }}">Pengajuan</a></li>
-                <li><a class="nav-link scrollto" href="{{ route('profileGuest') }}">Profile</a></li>
+                <li><a class="nav-link scrollto active" href="{{ route('userHome') }}">Home</a></li>
+                @if (Auth::user()->databansos_id == NULL)
+                <li><a class="nav-link scrollto" href="{{ route('pengajuan.index') }}">Pengajuan</a></li>
+                @else
+                <li><a class="nav-link scrollto" href="{{ route('profile.show', Auth::user()->id) }}">Profile</a></li>
+                @endif
                 <!-- Authentication Links -->
                 @guest
                 @if (Route::has('login'))
-                <li> 
+                <li>
                     <a class="nav-link scrollto" href="{{ route('login') }}">
                         <button type="button" class="btn btn-success">Sign In</button>
                     </a>

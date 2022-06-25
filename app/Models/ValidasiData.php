@@ -12,6 +12,7 @@ class ValidasiData extends Model
     use HasFactory;
     protected $table = 'validasi_data';
     protected $fillable = [
+        'databansos_id',
         'status',
         'proses',
     ];
