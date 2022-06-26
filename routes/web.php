@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminDBoard;
+use App\Http\Controllers\AdminLaporanController;
+use App\Http\Controllers\AdminUpdate;
+use App\Http\Controllers\AdminUserPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BansosController;
 use App\Http\Controllers\HomeController;
@@ -27,10 +31,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware(['is_admin'])->group(function () {
-    Route::get('admin/home', [HomeController::class, 'adminHome'])->name('adminHome');
-    Route::get('admin/user', [HomeController::class, 'userAdmin'])->name('userAdmin');
-    Route::get('admin/laporan', [HomeController::class, 'laporanBansos'])->name('laporanBansos');
-    Route::get('admin/detail', [HomeController::class, 'detailData'])->name('detailData');
+    Route::resource('admin', AdminDBoard::class);
+    Route::resource('adminUser', AdminUserPageController::class);
+    Route::resource('adminLaporan', AdminLaporanController::class);
 });
 
 Route::middleware(['is_user'])->group(function () {
@@ -39,6 +42,7 @@ Route::middleware(['is_user'])->group(function () {
     Route::resource('profile', ProfileController::class);
 });
 
+Route::get('cetak_pdf', [AdminLaporanController::class, 'cetak_pdf'])->name('cetakPdf');
 Route::resource('updateJenisBansos', UpdateUsers::class);
 
 Route::get('/home', [BansosController::class, 'index'])->name('dashboard');

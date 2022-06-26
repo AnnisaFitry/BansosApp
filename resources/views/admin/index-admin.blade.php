@@ -25,25 +25,21 @@
                                 <th style="font-weight: bolder;">Action</th>
                             </tr>
                         </thead>
+                        @foreach ($bansos as $bns)
                         <tbody>
                             <tr>
-                                <td>760123456789</td>
-                                <td>Test Nama</td>
-                                <td>Test Jenis Bansos</td>
-                                <td>
-                                    <a href="{{ route('detailData') }}" style="text-decoration:none">
-                                        <button type="button" class="btn btn-info btn-rounded btn-fw">Show</button>
+                                <td>{{ $bns->nik }}</td>
+                                <td>{{ $bns->nama_lengkap }}</td>
+                                <td>{{ $bns->nama_bansos }}</td>
+                                <td style="display:flex">
+                                    <a href="{{ route('admin.show', $bns->id) }}" style="text-decoration:none">
+                                        <button type="button" class="btn btn-info btn-rounded btn-fw">Validasi</button>
                                     </a>
-                                    <a href="#" style="text-decoration:none">
-                                        <button type="button"
-                                            class="btn btn-success btn-rounded btn-fw">Validate</button>
-                                    </a>
-                                    <a href="#" style="text-decoration:none">
-                                        <button type="button" class="btn btn-danger btn-rounded btn-fw">Reject</button>
-                                    </a>
+                                    &nbsp
                                 </td>
                             </tr>
                         </tbody>
+                        @endforeach
                     </table>
                 </div>
             </div>

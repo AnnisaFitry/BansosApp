@@ -4,7 +4,7 @@
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                     <h2>
-                        <a href="{{ route('adminHome') }}"
+                        <a href="{{ route('admin.index') }}"
                             style="text-decoration: none; color: white; font-weight:bolder; font-family:Verdana, Geneva, Tahoma, sans-serif">BansosApp</a>
                     </h2>
                 </div>
@@ -40,20 +40,20 @@
         <div class="container">
             <ul class="nav page-navigation">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('adminHome') }}">
+                    <a class="nav-link" href="{{ route('admin.index') }}">
                         <i class="mdi mdi-file-document-box menu-icon"></i>
                         <span class="menu-title">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('userAdmin') }}" class="nav-link">
+                    <a href="{{ route('adminUser.index') }}" class = "nav-link">
                         <i class="mdi mdi-chart-areaspline menu-icon"></i>
                         <span class="menu-title">User</span>
                         <i class="menu-arrow"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('laporanBansos') }}" class="nav-link">
+                    <a href="{{ route('adminLaporan.index') }}" class="nav-link">
                         <i class="mdi mdi-file-document-box-outline menu-icon"></i>
                         <span class="menu-title">Laporan Data Bansos</span></a>
                 </li>

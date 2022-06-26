@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataBansos;
+use App\Models\User;
+use App\Models\ValidasiData;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,7 +36,15 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('admin.index-admin');
+        $users = User::get();
+        $bansoss = DataBansos::with('jenisbansos')->get();
+        $validasii = ValidasiData::with('databansos')->get();
+
+        return view('admin.index-admin', [
+            'user' => $users, 
+            'bansos' => $bansoss,
+            'validasi' => $validasii
+        ]);
     }
 
     public function userAdmin()

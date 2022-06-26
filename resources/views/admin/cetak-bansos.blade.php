@@ -5,11 +5,18 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <style type="text/css">
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+        background-color: #fff;
+    }
+
     #invoice {
         padding: 30px;
     }
@@ -46,7 +53,7 @@
 
     .invoice .invoice-to .to {
         margin-top: 0;
-        margin-bottom: 0
+        margin-bottom: 0;
     }
 
     .invoice .invoice-details {
@@ -191,13 +198,9 @@
         <div class="invoice overflow-auto">
             <div style="min-width: 600px">
                 <header>
-                    <div class="row">
+                    <div class="row contacts">
                         <div class="col company-details">
-                            <h2 class="name">
-                                <a target="_blank" href="https://lobianijs.com">
-                                    BansosApp
-                                </a>
-                            </h2>
+                            <h2 class="name" style="color: #3989c6">BansosApp</h2>
                             <div>Jl. Soekarno Hatta No 09. Malang 65141</div>
                             <div>(+62) 812-3456-7890</div>
                             <div>tim4bansosapp@gmail.com</div>
@@ -205,15 +208,17 @@
                     </div>
                 </header>
                 <main>
-                    <div class="row contacts">
+                    <div class="row" style="padding-bottom: 20px;">
                         <div class="col invoice-to">
                             <h2 class="to">Laporan Data Bantuan Sosial</h2>
                             <div class="address">Jl. Soekarno Hatta No 09. Malang 65141</div>
                             <div class="email">tim4bansosapp@gmail.com</div>
                         </div>
-                        <div class="col invoice-details">
-                            <h1 class="invoice-id">LPBAPP-01</h1>
-                            <div class="date">Due Date: 30/10/2018</div>
+                    </div>
+                    <div class="col invoice-details">
+                        <div class="address">
+                            <h5 style="color: #3989c6">LPBAPP-01</h5> /
+                            Due Date: 30/10/2018
                         </div>
                     </div>
                     <table border="0" cellspacing="0" cellpadding="0">
@@ -225,22 +230,20 @@
                                 <th style="font-weight: bolder;">Status Bansos</th>
                             </tr>
                         </thead>
+                        @foreach ($laporan as $lpr)
                         <tbody style="background-color: white;">
                             <tr>
-                                <td>760123456789</td>
-                                <td>Test Nama</td>
-                                <td>Test Jenis Bansos</td>
-                                <td>Test Status Bansos</td>
+                                <td>{{ $lpr->nik }}</td>
+                                <td>{{ $lpr->nama_lengkap }}</td>
+                                <td>{{ $lpr->nama_bansos }}</td>
+                                <td>{{ $lpr->proses }}</td>
                             </tr>
                         </tbody>
+                        @endforeach
                     </table>
                 </main>
-
                 @include('partials.footer-admin')
-
             </div>
-            <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
-            <div></div>
         </div>
     </div>
 </body>
