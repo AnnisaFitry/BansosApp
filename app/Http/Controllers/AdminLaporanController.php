@@ -17,7 +17,6 @@ class AdminLaporanController extends Controller
     {
         $laporan = DB::table('databansos')
             ->join('jenisbansos', 'databansos.jenisbansos_id', '=', 'jenisbansos.id')
-            ->join('users', 'databansos.id', '=', 'users.databansos_id')
             ->join('validasi_data', 'databansos.id', '=', 'validasi_data.databansos_id')
             ->select('databansos.nik', 'databansos.nama_lengkap', 'jenisbansos.nama_bansos', 'validasi_data.proses')
             ->get();
@@ -26,7 +25,7 @@ class AdminLaporanController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -94,7 +93,6 @@ class AdminLaporanController extends Controller
     {
         $laporan = DB::table('databansos')
             ->join('jenisbansos', 'databansos.jenisbansos_id', '=', 'jenisbansos.id')
-            ->join('users', 'databansos.id', '=', 'users.databansos_id')
             ->join('validasi_data', 'databansos.id', '=', 'validasi_data.databansos_id')
             ->select('databansos.nik', 'databansos.nama_lengkap', 'jenisbansos.nama_bansos', 'validasi_data.proses')
             ->get();

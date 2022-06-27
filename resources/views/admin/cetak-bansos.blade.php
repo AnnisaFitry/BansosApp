@@ -217,7 +217,7 @@
                     </div>
                     <div class="col invoice-details">
                         <div class="address">
-                            <h5 style="color: #3989c6">LPBAPP-01</h5> /
+                            <h5 style="color: #3989c6">LPBAPP-01</h5>
                             Due Date: 30/10/2018
                         </div>
                     </div>
